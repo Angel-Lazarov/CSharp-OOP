@@ -1,17 +1,19 @@
-﻿namespace CustomStack
+﻿
+namespace CustomStack
 {
     public class StackOfStrings : Stack<string>
     {
-        public bool IsEmpty()
+        public bool IsEmpty() 
         {
-            return this.Count == 0;
+            return this.Any();
+            //return this.Count == 0;
         }
 
-        public void AddRange(IEnumerable<string> colection)
+        public void AddRange(IEnumerable<string> elements) 
         {
-            foreach (var item in colection)
-            {   
-                this.Push(item);
+            foreach (var element in elements)
+            {
+                this.Push(element);
             }
         }
     }

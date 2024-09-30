@@ -66,8 +66,8 @@ internal class Program
             }
             finally
             {
-                Console.WriteLine("Enter another command"); 
-            } 
+                Console.WriteLine("Enter another command");
+            }
         }
     }
 }

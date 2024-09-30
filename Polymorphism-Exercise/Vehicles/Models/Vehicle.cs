@@ -1,43 +1,53 @@
-﻿using Vehicles.Models.Interfaces;
+﻿using Vehicles.IO.Interfaces;
+using Vehicles.Models.Interfaces;
 
 namespace Vehicles.Models
 {
     public abstract class Vehicle : IVehicle
     {
-        private double increase;
+        private double IncreasedConsumption;
 
-        protected Vehicle(double fuel, double consumption, double increase)
+        protected Vehicle(double fuelQuantity, double fuelConsumption, double increased)
         {
-            Fuel = fuel;
-            Consumption = consumption;
-            this.increase = increase;
+            FuelQuantity = fuelQuantity;
+            FuelConsumption = fuelConsumption;
+            this.IncreasedConsumption = increased;
         }
 
-        public double Fuel { get; private set; }
+        public double FuelQuantity { get; private set; }
 
-        public double Consumption { get; private set; }
+        public double FuelConsumption { get; private set; }
+
 
         public string Drive(double distance)
         {
-            double finalConsumption = Consumption + increase;
+            double consumption = FuelConsumption + IncreasedConsumption;
 
-            if (Fuel < distance * finalConsumption)
+            if (FuelQuantity > distance * consumption)
             {
-                throw new ArgumentException($"{this.GetType().Name} needs refueling");
-            }
+                FuelQuantity -= distance * consumption;
 
-            Fuel -= distance * finalConsumption;
-            return $"{this.GetType().Name} travelled {distance} km";
+                return $"{this.GetType().Name} travelled {distance} km";
+            }
+            else
+            {
+                throw new ArgumentException($"{GetType().Name} needs refueling");
+            }
         }
 
-        public virtual void Refuel(double amount)
+        public virtual void Refuel(double fuelToAdd)
         {
-            Fuel += amount;
+            if (fuelToAdd <= 0)
+            {
+                throw new Exception($"Fuel must be a positive number");
+            }
+
+            FuelQuantity += fuelToAdd;
         }
 
         public override string ToString()
         {
-            return $"{this.GetType().Name}: {Fuel:f2}";
+            return $"{this.GetType().Name}: {FuelQuantity:f2}";
         }
     }
 }

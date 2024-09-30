@@ -2,21 +2,19 @@
 {
     public abstract class Animal
     {
-        private string name;
-        private string favouriteFood;
-
-        protected Animal(string name, string favouriteFood)
+        protected Animal(string favouriteFood, string name)
         {
-            this.name = name;
-            this.favouriteFood = favouriteFood;
+            FavouriteFood = favouriteFood;
+            Name = name;
         }
 
-        //public string Name { get; private set; }
-        //public string FavouriteFood { get; private set; }
+        public string FavouriteFood { get; private set; }
 
-        public virtual string ExplainSelf()
-        {
-            return $"I am {name} and my fovourite food is {favouriteFood}";
-        }
+		public string Name { get; protected set; }
+
+		public virtual string ExplainSelf() 
+		{
+			return $"I am {Name} and my fovourite food is {FavouriteFood}";
+		}
     }
 }

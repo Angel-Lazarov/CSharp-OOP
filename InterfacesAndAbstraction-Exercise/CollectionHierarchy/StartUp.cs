@@ -7,7 +7,7 @@ namespace CollectionHierarchy
     {
         static void Main(string[] args)
         {
-            IEngine engine = new Engine();
+            IEngine engine = new Engine2();
             engine.Run();
         }
     }

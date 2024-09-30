@@ -1,17 +1,16 @@
-﻿namespace Farm;
-
-public class StartUp
+﻿namespace Farm
 {
-    public static void Main()
+    public class StartUp
     {
-        Dog dog = new Dog();
-        dog.Eat();
-        dog.Bark();
+        static void Main(string[] args)
+        {
+            Dog dog = new Dog();
+            dog.Eat();
+            dog.Bark();
 
-        Cat cat = new Cat();
-        cat.Eat();
-        cat.Meow();
+            Cat cat = new Cat();
+            cat.Eat();
+            cat.Meow();
+        }
     }
 }
-// shutdown /s /t 52200
-

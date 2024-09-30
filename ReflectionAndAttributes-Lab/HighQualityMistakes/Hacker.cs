@@ -1,4 +1,4 @@
-﻿namespace Stealer;
+﻿namespace HighQualityMistakes;
 
 public class Hacker
 {

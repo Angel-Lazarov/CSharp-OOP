@@ -1,4 +1,5 @@
-﻿using Vehicles.Core;
+﻿using System.Buffers;
+using Vehicles.Core;
 using Vehicles.Core.Interfaces;
 using Vehicles.Factories;
 using Vehicles.Factories.Interfaces;
@@ -11,11 +12,13 @@ namespace Vehicles
     {
         static void Main(string[] args)
         {
+
             IReader reader = new ConsoleReader();
             IWriter writer = new ConsoleWriter();
-            IFactory factory = new Factory();
+            IVehicleFactory vehicleFactory = new VehicleFactory();
 
-            IEngine engine = new Engine(reader, writer, factory);
+
+            IEngine engine = new Engine(reader, writer, vehicleFactory);
             engine.Run();
         }
     }

@@ -25,7 +25,7 @@
 
                             if (index < 0 || index > array.Length - 1)
                             {
-
+                               
                                 throw outOfRangeException;
                             }
 
@@ -39,7 +39,7 @@
 
                             if (startIndex < 0 || endIndex > array.Length - 1)
                             {
-
+                              
                                 throw outOfRangeException;
                             }
 
@@ -51,12 +51,12 @@
 
                             List<int> filtered = new();
 
-                            for (int i = startIndex; i < endIndex + 1; i++)
+                            for (int i = startIndex; i < endIndex +1; i++) 
                             {
                                 filtered.Add(array[i]);
                             }
 
-                            Console.WriteLine(string.Join(", ", filtered));
+                            Console.WriteLine(string.Join(", ",filtered));
 
                             break;
 

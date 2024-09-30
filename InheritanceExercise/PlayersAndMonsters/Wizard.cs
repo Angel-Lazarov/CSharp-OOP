@@ -1,5 +1,4 @@
-﻿
-namespace PlayersAndMonsters
+﻿namespace PlayersAndMonsters
 {
     public class Wizard : Hero
     {

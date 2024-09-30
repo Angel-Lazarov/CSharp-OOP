@@ -6,11 +6,7 @@
         public SportCar(int horsePower, double fuel) : base(horsePower, fuel)
         {
         }
-        public override double FuelConsumption 
-            => defaultFuelConsumption;
-        //{
-        //    get => defaultFuelConsumption;
-        //    set => FuelConsumption = defaultFuelConsumption;
-        //}
+        public override double FuelConsumption => defaultFuelConsumption;
     }
+
 }

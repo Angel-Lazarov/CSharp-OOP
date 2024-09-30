@@ -2,7 +2,7 @@
 
 namespace BorderControl.Models
 {
-    public class Citizen : ICheckable
+    public class Citizen : IIdentifiable
     {
         public Citizen(string name, string age, string id)
         {

@@ -3,10 +3,9 @@ namespace Farm
 {
     public class Dog : Animal
     {
-        public void Bark()
+        public void Bark() 
         {
             Console.WriteLine("barking...");
         }
     }
-
 }

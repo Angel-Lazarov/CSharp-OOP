@@ -1,5 +1,4 @@
-﻿
-namespace Zoo
+﻿namespace Zoo
 {
     public class Lizard : Reptile
     {

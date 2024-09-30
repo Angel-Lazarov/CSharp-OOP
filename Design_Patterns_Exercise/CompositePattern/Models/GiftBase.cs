@@ -3,16 +3,16 @@
     public abstract class GiftBase
     {
 
-        private string name;
-        private decimal price;
-
-        public GiftBase(string name, decimal price)
+        protected GiftBase(string name, decimal price)
         {
-            this.name = name;
-            this.price = price;
+            Name = name;
+            Price = price;
         }
 
-        public abstract decimal CalculateTottalPrice();
+        protected string Name { get; private set; }
+        protected decimal Price { get; private set; }  
+
+        public abstract decimal CalculateTotalPrice();
 
     }
 }

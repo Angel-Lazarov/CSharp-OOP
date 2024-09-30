@@ -2,7 +2,7 @@
 
 namespace BorderControl.Models
 {
-    public class Robot : ICheckable
+    public class Robot : IIdentifiable
     {
         public Robot(string name, string id)
         {

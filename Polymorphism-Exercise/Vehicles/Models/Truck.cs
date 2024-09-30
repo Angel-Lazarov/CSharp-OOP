@@ -2,18 +2,14 @@
 {
     public class Truck : Vehicle
     {
-        const double Increase = 1.6;
-
-        public Truck(double fuel, double consumption) : base(fuel, consumption, Increase)
+        const double IncreasedConsumption = 1.6;
+        public Truck(double fuelQuantity, double fuelConsumption) : base(fuelQuantity, fuelConsumption, IncreasedConsumption)
         {
-
-        }   
-
-
-        public override void Refuel(double amount)
-        {
-            base.Refuel(amount * 0.95);
         }
 
-    }// shutdown /s /t 52200
+        public override void Refuel(double fuel)
+        {
+            base.Refuel(fuel * 0.95);
+        }
+    }
 }

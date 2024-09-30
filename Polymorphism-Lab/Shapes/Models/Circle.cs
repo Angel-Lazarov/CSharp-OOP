@@ -25,5 +25,10 @@
         {
             return 2 * Math.PI * Radius;
         }
+        //public override string Draw()
+        //{
+        //    return base.Draw();
+        //}
+
     }
 }

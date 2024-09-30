@@ -33,5 +33,11 @@ namespace Shapes.Models
         {
             return Width * 2 + Height * 2;
         }
+
+
+        //public override string Draw()
+        //{
+        //    return base.Draw();
+        //}
     }
 }

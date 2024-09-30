@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace P03.DetailPrinter
 {
@@ -15,13 +16,14 @@ namespace P03.DetailPrinter
         {
             foreach (Employee employee in this.employees)
             {
-                Print(employee);
+                PrintMe(employee);
             }
         }
 
-        private void Print(Employee employee) 
+        private void PrintMe(Employee employee)
         {
             employee.Print();
         }
+
     }
 }

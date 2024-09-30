@@ -104,8 +104,8 @@
         }
 
         private bool CheckStatValue(int stat) => stat < 0 || stat > 100;
-
-
-
+        
+        
+       
     }
 }

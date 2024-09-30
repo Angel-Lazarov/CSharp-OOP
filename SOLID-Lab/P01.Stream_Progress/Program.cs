@@ -4,10 +4,6 @@
     {
         static void Main()
         {   
-            Music music = new Music("preyer","madona", "vogue", 18, 2 );
-            music.BytesSent = 5;
-
-            StreamProgressInfo sp = new StreamProgressInfo( music );
         }
     }
 }

@@ -4,7 +4,7 @@ namespace P02.Graphic_Editor
 {
     public class Rectangle : IShape
     {
-        public void Draw()
+        public void Drow()
         {
             Console.WriteLine("I'm Recangle");
         }

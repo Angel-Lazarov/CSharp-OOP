@@ -6,7 +6,7 @@ namespace P02.Graphic_Editor
     {
         public void DrawShape(IShape shape)
         {
-            shape.Draw();
+            shape.Drow();
         }
     }
 }

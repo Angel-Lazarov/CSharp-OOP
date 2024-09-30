@@ -23,9 +23,9 @@ internal class Program
 
             Console.WriteLine(ex.Message);
         }
-        finally
+        finally 
         {
             Console.WriteLine("Goodbye.");
-        }
+        } 
     }
 }

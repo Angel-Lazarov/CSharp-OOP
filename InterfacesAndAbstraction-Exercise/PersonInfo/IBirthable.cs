@@ -2,8 +2,6 @@
 {
     public interface IBirthable
     {
-        public string Birthdate { get; set; }
+        public string Birthdate { get; }
     }
 }
-
-// shutdown /s /t 52200

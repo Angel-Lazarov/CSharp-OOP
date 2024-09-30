@@ -2,14 +2,13 @@
 {
     public class Cat : Animal
     {
-        public Cat(string name, string favouriteFood) : base(name, favouriteFood)
+        public Cat(string favouriteFood, string name) : base(favouriteFood, name)
         {
-
         }
 
         public override string ExplainSelf()
         {
-            return base.ExplainSelf() + $"{ Environment.NewLine}MEEOW";
+            return base.ExplainSelf() + Environment.NewLine + "MEEOW";
         }
     }
 }

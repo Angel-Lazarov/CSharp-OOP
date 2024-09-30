@@ -2,11 +2,10 @@
 {
     public class Car : Vehicle
     {
-        const double Increase = 0.9;
-        public Car(double fuel, double consumption) : base(fuel, consumption, Increase)
-        {
-            
-        }
+        const double IncreasedConsumption = 0.9;
 
+        public Car(double fuelQuantity, double fuelConsumption) : base(fuelQuantity, fuelConsumption, IncreasedConsumption)
+        {
+        }
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-
-namespace P02.Graphic_Editor
+﻿namespace P02.Graphic_Editor
 {
     public interface IShape
     {
-        void Draw();
+        void Drow();
     }
 }

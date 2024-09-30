@@ -1,4 +1,9 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace PlayersAndMonsters
 {
     public class Hero
@@ -14,8 +19,7 @@ namespace PlayersAndMonsters
 
         public override string ToString()
         {
-            //string t = this.GetType().Name;
-            return $"Type: {GetType().Name} Username: {Username} Level: {Level}";
+            return $"Type: {this.GetType().Name} Username: {Username} Level: {Level}";
         }
     }
 }

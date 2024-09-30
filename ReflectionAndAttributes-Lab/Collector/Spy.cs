@@ -1,13 +1,13 @@
 ﻿using System.Reflection;
 using System.Text;
 
-namespace Stealer;
-
-
+//namespace Stealer;
+//namespace HighQualityMistakes;
+namespace Collector;
 
 public class Spy
 {
-    public string AnalyzeAccessModifiers(string investigatedClass)
+    public string AnalyzeAccessModifiers(string investigatedClass) 
     {
 
         Type classType = Type.GetType(investigatedClass);
@@ -42,11 +42,12 @@ public class Spy
     }
 
 
-    public string StealFieldInfo(string investigatedClass, params string[] fieldsToInvestigate)
+
+    public string StealFieldInfo(string investigatedClass, params string[] fieldsToInvestigate) 
     {
         Type classType = Type.GetType(investigatedClass);
 
-        //  FieldInfo[] privateFields = classType.GetFields((BindingFlags)60);
+      //  FieldInfo[] privateFields = classType.GetFields((BindingFlags)60);
 
         FieldInfo[] classFields = classType.GetFields(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
@@ -57,7 +58,7 @@ public class Spy
 
         sb.AppendLine($"Class under investigation: {investigatedClass}");
 
-        foreach (var field in classFields.Where(f => fieldsToInvestigate.Contains(f.Name)))
+        foreach (var field in classFields.Where(f=> fieldsToInvestigate.Contains(f.Name)))  
         {
             sb.AppendLine($"{field.Name} = {field.GetValue(classInstance)}");
         }
@@ -87,6 +88,4 @@ public class Spy
 
         return sb.ToString().Trim();
     }
-
-
 }

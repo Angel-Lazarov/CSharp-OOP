@@ -1,4 +1,5 @@
-﻿namespace Stealer;
+﻿//namespace Stealer;
+namespace Collector;
 
 internal class StartUp
 {
@@ -6,8 +7,8 @@ internal class StartUp
     {
         Spy spy = new Spy();
 
-        // string result = spy.StealFieldInfo("Stealer.Hacker", "username", "password");
-        string result = spy.CollectGettersAndSetters("Stealer.Hacker");
+        //string result = spy.AnalyzeAccessModifiers("HighQualityMistakes.Hacker");
+        string result = spy.CollectGettersAndSetters("Collector.Hacker");
 
         Console.WriteLine(result);
     }

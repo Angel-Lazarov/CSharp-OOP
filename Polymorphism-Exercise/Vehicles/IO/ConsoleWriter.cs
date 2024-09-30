@@ -4,6 +4,9 @@ namespace Vehicles.IO
 {
     public class ConsoleWriter : IWriter
     {
-        public void WriteLine(string message) => Console.WriteLine(message);
+        public void WriteLine(string line)
+        {
+            Console.WriteLine(line);
+        }
     }
 }

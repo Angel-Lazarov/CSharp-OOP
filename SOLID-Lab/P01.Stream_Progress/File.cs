@@ -1,7 +1,6 @@
 ﻿namespace P01.Stream_Progress
 {
-    public abstract class File : StreamableFile
-
+    public class File : Streamable
     {
         private string name;
 

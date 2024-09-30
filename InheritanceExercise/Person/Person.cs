@@ -1,14 +1,15 @@
-﻿namespace Person
+﻿
+namespace Person
 {
     public class Person
     {
         private string name;
         private int age;
 
-        public Person(string namen, int agen)
+        public Person(string name, int age)
         {
-            Name = namen;
-            Age = agen;
+            Name = name;
+            Age = age;
         }
 
         public string Name
@@ -16,7 +17,6 @@
             get { return name; }
             set { name = value; }
         }
-
 
         public virtual int Age
         {

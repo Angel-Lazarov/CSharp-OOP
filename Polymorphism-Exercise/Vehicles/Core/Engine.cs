@@ -1,86 +1,90 @@
 ﻿using Vehicles.Core.Interfaces;
 using Vehicles.Models.Interfaces;
-using Vehicles.IO.Interfaces;
 using Vehicles.Factories.Interfaces;
+using Vehicles.IO.Interfaces;
 
-namespace Vehicles.Core;
-
-public class Engine : IEngine
+namespace Vehicles.Core
 {
-    private readonly IReader reader;
-    private readonly IWriter writer;
-    private readonly IFactory factory;
-    private readonly ICollection<IVehicle> vehicles;
-
-    public Engine(IReader reader, IWriter writer, IFactory factory)
+    public class Engine : IEngine
     {
-        this.reader = reader;
-        this.writer = writer;
-        this.factory = factory;
-        this.vehicles = new List<IVehicle>();
+        private readonly IReader reader;
+        private readonly IWriter writer;
+        private readonly ICollection<IVehicle> vehicles;
+        private readonly IVehicleFactory vehicleFactory;
 
-    }
-
-    public void Run()
-    {
-
-        vehicles.Add(CreateVehicle());
-        vehicles.Add(CreateVehicle());
-
-        int.TryParse(reader.ReadLine(), out int count);
-
-        for (int i = 0; i < count; i++)
+        public Engine(IReader reader, IWriter writer, IVehicleFactory vehicleFactory)
         {
-            try
+            this.reader = reader;
+            this.writer = writer;
+            this.vehicleFactory = vehicleFactory;
+
+            vehicles = new List<IVehicle>();
+        }
+
+
+        public void Run()
+        {
+            vehicles.Add(CreateVehicle()); //add Car
+            vehicles.Add(CreateVehicle()); // add Truck
+
+
+            int commandsCount = int.Parse(reader.ReadLine());
+
+            for (int i = 0; i < commandsCount; i++)
             {
-                ProcessCommand();
+                try
+                {
+                    ProcessCommand();
+                }
+                catch (ArgumentException ex)
+                {
+                    writer.WriteLine(ex.Message);
+                }
+                catch (Exception) 
+                {
+                    throw;
+                }
             }
-            catch (ArgumentException ex)
+
+            foreach (var vehicle in vehicles)
             {
-                writer.WriteLine(ex.Message);
+                writer.WriteLine(vehicle.ToString());
             }
-            catch (Exception)
-            { throw; }
+
         }
 
-        foreach (var vehicle in vehicles)
+        private IVehicle CreateVehicle() 
         {
-            writer.WriteLine(vehicle.ToString());
+            string[] info = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            IVehicle vehicle = vehicleFactory.Create(info[0], double.Parse(info[1]), double.Parse(info[2]));
+
+            return vehicle;
+        }
+        private void ProcessCommand()
+        {
+            string[] commandInfo = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            string command = commandInfo[0];
+            string vehicleType = commandInfo[1];
+
+            IVehicle vehicle = vehicles.FirstOrDefault(v => v.GetType().Name == vehicleType);
+            if(vehicle == null) 
+            {
+                throw new ArgumentException("No such type!");
+            }
+
+
+            if (command == "Drive")
+            {
+                double distance = double.Parse(commandInfo[2]);
+                writer.WriteLine(vehicle.Drive(distance));
+            }
+            else if (command == "Refuel")
+            {
+                double amount = double.Parse(commandInfo[2]);
+                vehicle.Refuel(amount);
+            }
         }
     }
-
-    private IVehicle CreateVehicle()
-    {
-        string[] info = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-        return factory.Create(info[0], double.Parse(info[1]), double.Parse(info[2]));
-    }
-
-    void ProcessCommand()
-    {
-        string[] commnandInfo = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-        string command = commnandInfo[0];
-        string type = commnandInfo[1];
-        double amount = double.Parse(commnandInfo[2]);
-
-        IVehicle vehicle = vehicles.FirstOrDefault(v => v.GetType().Name == type);
-
-
-        if (vehicle == null)
-        {
-            throw new ArgumentException("Invalid type vehicle!");
-        }
-
-        if (command == "Drive")
-        {
-            writer.WriteLine(vehicle.Drive(amount));
-        }
-        else if (command == "Refuel")
-        {
-            vehicle.Refuel(amount);
-        }
-    }
-
-
-
 }

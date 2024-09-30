@@ -1,4 +1,4 @@
-﻿namespace Stealer;
+﻿namespace Collector;
 
 public class Hacker
 {

@@ -39,7 +39,7 @@
                 {
                     Console.WriteLine("Invalid Number!");
                 }
-                catch (ArgumentOutOfRangeException ex)
+                catch (ArgumentOutOfRangeException ex) 
                 {
                     Console.WriteLine(ex.Message);
                 }

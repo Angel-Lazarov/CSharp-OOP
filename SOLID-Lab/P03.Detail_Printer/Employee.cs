@@ -11,7 +11,7 @@ namespace P03.DetailPrinter
 
         public string Name { get; set; }
 
-        public virtual void Print()
+        public virtual void Print() 
         {
             Console.WriteLine(Name);
         }
